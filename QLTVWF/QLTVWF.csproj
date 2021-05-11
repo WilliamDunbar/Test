@@ -36,6 +36,12 @@
     <Reference Include="Bunifu_UI_v1.52">
       <HintPath>..\packages\Bunifu_UI_v1.52\Bunifu_UI_v1.52.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.13.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.13.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -44,9 +50,12 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,11 +67,78 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DangKyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangKyNhanVien.Designer.cs">
+      <DependentUpon>DangKyNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhap.Designer.cs">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database\ChucVu.cs" />
+    <Compile Include="Database\CuonSach.cs" />
+    <Compile Include="Database\DauSach.cs" />
+    <Compile Include="Database\DocGia.cs" />
+    <Compile Include="Database\Model_QuanLi_ThuVien.cs" />
+    <Compile Include="Database\MuonTra.cs" />
+    <Compile Include="Database\NhanVien.cs" />
+    <Compile Include="Database\SangTac.cs" />
+    <Compile Include="Database\SoSachMuon.cs" />
+    <Compile Include="Database\TacGia.cs" />
+    <Compile Include="Database\TacGia_DauSach.cs" />
+    <Compile Include="Database\TaiKhoanDG.cs" />
+    <Compile Include="Database\TaiKhoanNV.cs" />
+    <Compile Include="Database\TaiLieuMuonTra.cs" />
+    <Compile Include="Database\TanXuatMuon.cs" />
+    <Compile Include="Database\TheLoai.cs" />
+    <Compile Include="Database\TheLoaiDauSach.cs" />
+    <Compile Include="Database\TheLoai_DauSach.cs" />
+    <Compile Include="Database\ThongTinCuonSach.cs" />
+    <Compile Include="Database\ThongTinDauSach.cs" />
+    <Compile Include="Database\ThongTinDocGia.cs" />
+    <Compile Include="Database\ThongTinMuonTra.cs" />
+    <Compile Include="Database\ThongTinNhanVien.cs" />
+    <Compile Include="Database\ThongTinNopPhat.cs" />
+    <Compile Include="Database\TT_CuonSach.cs" />
+    <Compile Include="Database\TT_TheLoai_DauSach.cs" />
+    <Compile Include="Database\ViPham.cs" />
+    <Compile Include="Database\ViPhamCaNhan.cs" />
+    <Compile Include="Database\ViTriSach.cs" />
+    <Compile Include="Database\XuLyViPham.cs" />
+    <Compile Include="Database\XuLyViPham1.cs" />
+    <Compile Include="DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_TaiKhoan.Designer.cs">
+      <DependentUpon>Form_TaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ThemTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ThemTacGia.Designer.cs">
+      <DependentUpon>Form_ThemTacGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_ThemTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_ThemTheLoai.Designer.cs">
+      <DependentUpon>Form_ThemTheLoai.cs</DependentUpon>
     </Compile>
     <Compile Include="MuonSach.cs">
       <SubType>Form</SubType>
@@ -84,11 +160,23 @@
     <Compile Include="QuanLyDauSach.Designer.cs">
       <DependentUpon>QuanLyDauSach.cs</DependentUpon>
     </Compile>
-    <Compile Include="ThemTheLoai.cs">
+    <Compile Include="QuanLyDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ThemTheLoai.Designer.cs">
-      <DependentUpon>ThemTheLoai.cs</DependentUpon>
+    <Compile Include="QuanLyDocGia.Designer.cs">
+      <DependentUpon>QuanLyDocGia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ThayDoiThongTinNhanVIen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThayDoiThongTinNhanVIen.Designer.cs">
+      <DependentUpon>ThayDoiThongTinNhanVIen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimKiemDauSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimKiemDauSach.Designer.cs">
+      <DependentUpon>TimKiemDauSach.cs</DependentUpon>
     </Compile>
     <Compile Include="TraSach.cs">
       <SubType>Form</SubType>
@@ -96,8 +184,27 @@
     <Compile Include="TraSach.Designer.cs">
       <DependentUpon>TraSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="TT_TacGia_DauSach.cs" />
+    <EmbeddedResource Include="DangKyNhanVien.resx">
+      <DependentUpon>DangKyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TaiKhoan.resx">
+      <DependentUpon>Form_TaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ThemTacGia.resx">
+      <DependentUpon>Form_ThemTacGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_ThemTheLoai.resx">
+      <DependentUpon>Form_ThemTheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MuonSach.resx">
       <DependentUpon>MuonSach.cs</DependentUpon>
@@ -117,8 +224,14 @@
     <EmbeddedResource Include="QuanLyDauSach.resx">
       <DependentUpon>QuanLyDauSach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ThemTheLoai.resx">
-      <DependentUpon>ThemTheLoai.cs</DependentUpon>
+    <EmbeddedResource Include="QuanLyDocGia.resx">
+      <DependentUpon>QuanLyDocGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThayDoiThongTinNhanVIen.resx">
+      <DependentUpon>ThayDoiThongTinNhanVIen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimKiemDauSach.resx">
+      <DependentUpon>TimKiemDauSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TraSach.resx">
       <DependentUpon>TraSach.cs</DependentUpon>
@@ -137,5 +250,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
